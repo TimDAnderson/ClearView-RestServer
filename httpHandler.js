@@ -66,7 +66,7 @@ router.post('/autoalign/:maximizeLength/:alignmode', (req, res) => {
   let cvCommand = '';
   if ((req.query.DomSeqOnA !== undefined) && (req.query.exhaustiveSearchRange !== undefined)) {
     cvCommand = `autoalign ${req.params.maximizeLength} ${req.params.alignmode} ${req.query.DomSeqOnA} ${req.query.exhaustiveSearchRange}`
-  } else if (eq.query.DomSeqOnA !== undefined) {
+  } else if (req.query.DomSeqOnA !== undefined) {
     cvCommand = `autoalign ${req.params.maximizeLength} ${req.params.alignmode} ${req.query.DomSeqOnA}`
   } else {
     cvCommand = `autoalign ${req.params.maximizeLength} ${req.params.alignmode}`
