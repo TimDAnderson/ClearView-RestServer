@@ -117,7 +117,25 @@ router.post('/configDMOS/:fieldMode/:maxValue', (req, res) => {
   });
 })
 
+//configDolby
+router.post('/configDolby/:input/:enable', (req, res) => {
+  let cvCommand = `configDolby ${req.params.input} ${req.params.enable}`;
+  clearviewCommand.create(cvCommand, (err, responseText) => {
+    if (err) {
+      res.sendStatus(404);
+    } else {
+      res.send(responseText.toString('utf8').replace(/\0/g, ''))
+    }
+  });
+})
+
 //configExport
+// router.post('/configExport/:type', (req, res) => {
+//   let cvCommand = ''
+//   if (req.params.type === 'MOV') {
+//     console.log('')
+//   }
+// })
 
 
 //play

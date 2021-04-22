@@ -4,7 +4,7 @@
   "description": "Server to translate REST commands to TCP",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha spec",
     "postinstall": "curl -s https://raw.githubusercontent.com/reactorcore/pomander/master/bin/install | bash",
     "start": "nodemon ./server.js",
     "lint": "eslint ./"
@@ -20,7 +20,10 @@
   },
   "homepage": "https://github.com/TimDAnderson/ClearView-RestServer#readme",
   "dependencies": {
+    "axios": "^0.21.1",
+    "chai": "^4.3.0",
     "express": "^4.17.1",
+    "mocha": "^8.3.0",
     "nodemon": "^2.0.7"
   },
   "devDependencies": {
