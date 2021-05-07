@@ -2,7 +2,7 @@ const socketClient = require('./socketClient');
 //What is this module going to have to do?
 //it is going to assemble the cv command strings then pass it to socketClient
 
-const tcpServer = '192.168.1.73'
+const tcpServer = '127.0.0.1'
 const tcpPort = 7;
 
 exports.create = (cvCommand, callback) => {
