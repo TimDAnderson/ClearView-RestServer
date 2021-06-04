@@ -130,12 +130,53 @@ router.post('/configDolby/:input/:enable', (req, res) => {
 })
 
 //configExport
-// router.post('/configExport/:type', (req, res) => {
-//   let cvCommand = ''
-//   if (req.params.type === 'MOV') {
-//     console.log('')
-//   }
-// })
+router.post('/configExport/:type', (req, res) => {
+  let cvCommand = ''
+  if (req.params.type === 'AIFF') {
+    let numAudioChannels = req.query.numAudioChannels;
+    cvCommand = `ConfigExport AIFF ${numAudioChannels}`;
+    clearviewCommand.create(cvCommand, (err, responseText) => {
+      if (err) {
+        res.sendStatus(404);
+      } else {
+        res.send(responseText.toString('utf8').replace(/\0/g, ''))
+      }
+    })
+  } else if (req.params.type === 'MOV') {
+    let numAudioChannels = req.query.numAudioChannels;
+    let interlaced = req.query.interlaced;
+    cvCommand = `ConfigExport MOV ${numAudioChannels} ${interlaced}`;
+    clearviewCommand.create(cvCommand, (err, responseText) => {
+      if (err) {
+        res.sendStatus(404);
+      } else {
+        res.send(responseText.toString('utf8').replace(/\0/g, ''))
+      }
+    })
+  } else {
+    let framerate = req.query.framerate;
+    let SixteenBit = req.query.SixteenBit
+    let MultiFrame = req.query.MultiFrame
+    let FourTwoZero = req.query.FourTwoZero
+    let planar = req.query.planar
+    cvCommand = `ConfigExport ${req.params.type} ${framerate} ${SixteenBit} ${MultiFrame} ${FourTwoZero} ${planar}`
+    clearviewCommand.create(cvCommand, (err, responseText) => {
+      if (err) {
+        res.sendStatus(404);
+      } else {
+        res.send(responseText.toString('utf8').replace(/\0/g, ''))
+      }
+    })
+  }
+})
+
+//configInputFile
+//depricated
+
+//configIPRecordScaling
+//depricated
+
+
 
 
 //play
