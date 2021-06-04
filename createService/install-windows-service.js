@@ -4,7 +4,7 @@ var Service = require('node-windows').Service;
 var svc = new Service({
   name:'ClearView REST Server',
   description: 'ClearView REST Server',
-  script: 'C:\\ClearView-RestServer\\index.js'
+  script: 'C:\\ClearView-RestServer\\server\\index.js'
 });
 
 // Listen for the "install" event, which indicates the

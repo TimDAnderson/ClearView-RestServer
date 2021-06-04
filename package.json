@@ -4,7 +4,7 @@
   "description": "Server to translate REST commands to TCP",
   "main": "index.js",
   "scripts": {
-    "test": "mocha spec",
+    "test": "mocha test",
     "postinstall": "curl -s https://raw.githubusercontent.com/reactorcore/pomander/master/bin/install | bash",
     "start": "nodemon ./server.js",
     "lint": "eslint ./"
